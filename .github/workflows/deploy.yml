@@ -11,6 +11,7 @@ jobs:
         run: echo "hola mundo"
 
   segundo_job:
+    if: false
     needs: primer_job
     runs-on: ubuntu-latest
 
