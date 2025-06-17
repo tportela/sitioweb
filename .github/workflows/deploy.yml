@@ -7,8 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Hola mundo
-        run: echo "hola mundo"
+      - name: Working dir
+        run: ls -al
+
+      - name: Action
+        uses: actions/checkout
 
   segundo_job:
     if: false
@@ -17,4 +20,4 @@ jobs:
 
     steps:
       - name: Hola mundo 2
-        run: echo "hola mundo 2"
+        run: echo "hola mundo 2 ${{ github.ref}}"
