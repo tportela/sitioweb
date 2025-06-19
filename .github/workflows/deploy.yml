@@ -10,26 +10,12 @@ jobs:
       salida: ${{ steps.step_1.outputs.mi_variable }}
 
     steps:
-      - name: Exportar Variable
-        id: step_1
-        run: echo "mi_variable=Hola Mundo" >> $GITHUB_OUTPUT
+      - name: Generar archivo
+        run: |
+          echo "archivo de prueba, hola" >> test.log
 
-      - name: Importar Variable Step
-        run: echo "${{ steps.step_1.outputs.mi_variable }}"
-
-      - name: Action
-        uses: actions/checkout@v4
-
-      - name: DespuesAcccion
-        run: ls -al
-
-  segundo_job:
-    needs: primer_job
-    runs-on: ubuntu-latest
-
-    env:
-      SALIDA: ${{ needs.primer_job.outputs.salida }}
-
-    steps:
-      - name: Hola mundo 2
-        run: echo "hola mundo 2 $SALIDA"
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: archivo-test
+          path: test.log
