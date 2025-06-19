@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Exportar Variable
         id: step_1
-        run: echo "mi_variable=Hola Mundo" >> GITHUB_OUTPU
+        run: echo "mi_variable=Hola Mundo" >> GITHUB_OUTPUT
 
       - name: Importar Variable Step
         run: echo "${{ steps.step_1.outputs.mi_variable }}"
