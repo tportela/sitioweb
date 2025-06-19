@@ -10,11 +10,12 @@ jobs:
       NAME: TadeoPortela
 
     steps:
-      - name: Working dir
-        run: echo $GITHUB_OUTPUT
+      - name: Exportar Variable
+        id: step_1
+        run: echo "mi_variable=Hola Mundo" >> GITHUB_OUTPU
 
-      - name: VariableEntorno
-        run: echo "Mi nombre es $NAME"
+      - name: Importar Variable Step
+        run: echo "${{ steps.step_1.outputs.mi_variable }}"
 
       - name: Action
         uses: actions/checkout@v4
