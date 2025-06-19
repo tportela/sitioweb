@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Working dir
-        run: ls -al
+        run: echo $GITHUB_OUTPUT
 
       - name: VariableEntorno
         run: echo "Mi nombre es $NAME"
