@@ -6,12 +6,21 @@ jobs:
   primer_job:
     runs-on: ubuntu-latest
 
+    env:
+      NAME: TadeoPortela
+
     steps:
       - name: Working dir
         run: ls -al
 
+      - name: VariableEntorno
+        run: echo "Mi nombre es $NAME"
+
       - name: Action
-        uses: actions/checkout
+        uses: actions/checkout@v4
+
+      - name: DespuesAcccion
+        run: ls -al
 
   segundo_job:
     if: false
