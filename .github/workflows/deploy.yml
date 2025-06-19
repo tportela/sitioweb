@@ -6,8 +6,8 @@ jobs:
   primer_job:
     runs-on: ubuntu-latest
 
-    env:
-      NAME: TadeoPortela
+    outputs:
+      salida: ${{ steps.step_1.outputs.mi_variable }}
 
     steps:
       - name: Exportar Variable
@@ -27,6 +27,9 @@ jobs:
     needs: primer_job
     runs-on: ubuntu-latest
 
+    env:
+      SALIDA: ${{ needs.primer_job.outputs.salida }}
+
     steps:
       - name: Hola mundo 2
-        run: echo "hola mundo 2 ${{ github.ref}}"
+        run: echo "hola mundo 2 $SALIDA"
