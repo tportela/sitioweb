@@ -19,3 +19,15 @@ jobs:
         with:
           name: archivo-test
           path: test.log
+
+  segundo_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar artefacto
+        uses: actions/dowload-artifact@v4
+        with:
+          name: archivo-test
+
+      - name: Cat file
+        run: cat test.log
